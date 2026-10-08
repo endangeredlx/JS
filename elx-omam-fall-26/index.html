@@ -1,0 +1,382 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=cb26b38e-fd59-4298-88eb-9b2bd9e62abc"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OMAM Fall ’26</title><meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+<style>
+:root{--bg:#f6f5f2;--panel:#fff;--ink:#17161a;--muted:#6b6a73;--line:#e6e3dd;--soft:#efede8;
+--show:#E8A87C;--fest:#E98B8B;--travel:#B9A3DB;--off:#C9C9CC;--prep:#9DBCE3;--hold:#F2D57E;--bad:#C0362C;--badbg:#FBE7E4;--ok:#2E7D4F;--okbg:#E3F3E8}
+@media (prefers-color-scheme:dark){:root{--bg:#111114;--panel:#1a1a1f;--ink:#f1f0ee;--muted:#9c9aa3;--line:#2b2a31;--soft:#222127;--badbg:#3a1d1b;--bad:#FF8A7F;--okbg:#17301f;--ok:#7BD49C}}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.05;margin:6px 0 4px;letter-spacing:-.02em}
+.sub{color:var(--muted)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:22px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em}.tile span{color:var(--muted);font-size:13px}
+.next{grid-column:span 2;min-width:0}.next b{font-size:18px}.next .when{color:var(--muted);font-size:13px;margin-top:2px}
+@media (max-width:520px){.next{grid-column:span 1}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card h2{font-size:15px;margin:0 0 10px;letter-spacing:.01em}
+.card ul{margin:0;padding-left:18px}.card li{margin:3px 0}
+.card a{color:inherit}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 6px}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.toggle{margin-left:auto;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.month{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:26px 0 8px;font-weight:700}
+.row{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:start;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;padding:11px 14px;margin:6px 0}
+.row.past{opacity:.45}.row.today{box-shadow:0 0 0 2px var(--ink)}
+.date{text-align:center;line-height:1.05}.date .dow{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.08em}.date .day{font-size:24px;font-weight:700}.date .mon{font-size:11px;color:var(--muted);text-transform:uppercase}
+.main{min-width:0}.city{font-weight:650}.venue{color:var(--muted);font-size:14px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pill{font-size:11.5px;border-radius:6px;padding:2px 7px;background:var(--soft);white-space:nowrap}
+.pill.type{color:#1b1a1e}.pill.act{color:#fff;font-weight:600}
+.pill.st-booked{background:var(--okbg);color:var(--ok)}.pill.st-hold,.pill.st-tentative{background:#FFF1C9;color:#7A5B00}.pill.st-unverified{background:var(--badbg);color:var(--bad)}
+.pill.conf{background:var(--badbg);color:var(--bad);font-weight:600;white-space:normal}
+.note{font-size:13px;color:var(--muted);margin-top:4px}
+.time{font-variant-numeric:tabular-nums;font-weight:600;font-size:14px;text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.empty{color:var(--muted);padding:20px 0}
+footer{color:var(--muted);font-size:12px;margin-top:36px}
+
+.hero{position:relative;border-radius:18px;overflow:hidden;min-height:200px;display:flex;align-items:flex-end;margin-bottom:6px;color:#fff}
+.hero .bg{position:absolute;inset:0}.hero .txt{position:relative;padding:22px 24px;background:linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,.35) 70%,rgba(0,0,0,0));width:100%;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.hero .eyebrow,.hero .sub{color:rgba(255,255,255,.8)}
+.coverhero{display:flex;gap:22px;align-items:center;background:#0b0b0b;color:#f2f1ee;border-radius:18px;padding:18px;border:1px solid var(--line)}.coverhero img{width:clamp(130px,26vw,240px);aspect-ratio:1;border-radius:10px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.5)}.coverhero .eyebrow,.coverhero .sub{color:rgba(242,241,238,.7)}
+@media (max-width:520px){.coverhero{flex-direction:column;align-items:flex-start}}
+.poster{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000}.poster img{display:block;width:100%;height:auto}.titleblock{margin:16px 2px 0}
+.back{display:inline-block;margin-bottom:12px;color:var(--muted);text-decoration:none;font-size:13px}.back:hover{color:var(--ink)}
+.route{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.route span{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:13px}.route i{color:var(--muted);font-style:normal}
+
+.art{display:block;width:100%;height:100%}
+@media (prefers-reduced-motion:no-preference){
+.art .drift{animation:drift 14s ease-in-out infinite alternate}
+.art .twinkle{transform-box:fill-box;transform-origin:center;animation:twinkle 3.2s ease-in-out infinite}
+.art .d2{animation-delay:.8s}.art .d3{animation-delay:1.6s}.art .d4{animation-delay:2.4s}
+.art .dash path{animation:dash 6s linear infinite}
+.art .fly{animation:fly 6s ease-in-out infinite alternate}
+.art .sweep{transform-origin:300px 0;animation:sweep 7s ease-in-out infinite alternate}
+}
+@keyframes drift{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes dash{to{stroke-dashoffset:-90}}
+@keyframes fly{from{transform:translate(400px,160px) rotate(-18deg)}to{transform:translate(470px,130px) rotate(-10deg)}}
+@keyframes sweep{from{transform:skewX(-6deg)}to{transform:skewX(6deg)}}
+
+@media (max-width:560px){.row{grid-template-columns:50px 1fr}.time{grid-column:2;text-align:left}}
+
+.tabs{display:flex;gap:4px;margin:20px 0 2px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tab{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:inherit;font-weight:650;padding:10px 14px;cursor:pointer;border-radius:8px 8px 0 0;margin-bottom:-1px}
+.tab:hover{color:var(--ink);background:var(--soft)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.rig-h{font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em;margin:6px 0 4px;line-height:1.1}
+.rig-head{margin:22px 2px 4px}
+.secttl{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:30px 0 8px;font-weight:700}
+.hint{font-size:12.5px;color:var(--muted);margin:2px 2px 10px}
+.cmp{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;margin:8px 0;overflow:hidden}
+.cmp>summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;grid-template-columns:78px 1fr 1fr 150px;gap:14px;align-items:center}
+.cmp>summary::-webkit-details-marker{display:none}
+.cmp>summary:hover{background:var(--soft)}
+.cmp .chn{font-variant-numeric:tabular-nums;font-weight:700;font-size:14px}
+.cmp .side{min-width:0}
+.cmp .lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:1px}
+.cmp .val{font-size:14px;font-weight:650;overflow-wrap:anywhere;line-height:1.3}
+.cmp .mode{color:var(--muted);font-size:12.5px;margin-top:1px}
+.cmp .flags{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end}
+.cmp .body{padding:12px 14px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;line-height:1.55}
+.cmp .body b{color:var(--ink);font-weight:650}
+.cmp[open]>summary{background:var(--soft)}
+.qty{display:inline-block;font-variant-numeric:tabular-nums;background:var(--soft);border-radius:6px;padding:1px 7px;font-size:12px;margin-left:6px;color:var(--muted);font-weight:700}
+@media(max-width:760px){.cmp>summary{grid-template-columns:1fr;gap:8px}.cmp .flags{justify-content:flex-start}}
+.st{font-size:11px;border-radius:6px;padding:3px 8px;white-space:nowrap;font-weight:650}
+.st.ok{background:var(--okbg);color:var(--ok)}
+.st.warn{background:#FFF1C9;color:#7A5B00}
+.st.bad{background:var(--badbg);color:var(--bad)}
+.st.new{background:#E7EEF9;color:#2C5282}
+@media (prefers-color-scheme:dark){.st.warn{background:#3a3117;color:#F2D57E}.st.new{background:#1b2740;color:#9DBCE3}}
+.qs{margin:0;padding-left:20px}.qs li{margin:9px 0}
+.srch{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);font:inherit}
+.uni tbody tr{cursor:pointer}
+.uni tbody tr:hover td{background:var(--soft)}
+.uni tbody tr.sel td{background:var(--soft);font-weight:650;box-shadow:inset 3px 0 0 var(--ink)}
+td.num,th.num{font-variant-numeric:tabular-nums}
+tr.sub td:first-child{box-shadow:inset 3px 0 0 var(--c)}
+.srcs{margin:0;padding-left:18px;font-size:13.5px}.srcs li{margin:6px 0}
+.srcs em{color:var(--muted);font-style:normal}
+
+</style></head><body><div class="wrap">
+<a class="back" href="https://elx-tour-hub-26.netlify.app">← All tour dashboards</a>
+<div class="coverhero"><img src="omam-artwork.jpg" alt="Of Monsters and Men artwork"><div><div class="eyebrow">Of Monsters and Men · Tour Dashboard</div><h1>OMAM Fall ’26</h1><div class="sub">Sep 16 – Oct 7, 2026 · LD: Erica</div></div></div>
+<nav class="tabs" id="tabs" role="tablist">
+<button class="tab" role="tab" data-pane="itinerary" aria-selected="true">Itinerary</button>
+<button class="tab" role="tab" data-pane="rig" aria-selected="false">Rig &amp; Patch</button>
+</nav>
+<section id="pane-itinerary" class="tabpane">
+<div class="grid" id="stats"></div>
+
+
+<div class="bar" id="filters"></div>
+<div id="list"></div>
+<footer>Last updated Oct 8, 2026 from the combined routing sheet and Google Calendar. Times are local to each venue.</footer>
+</section>
+<section id="pane-rig" class="tabpane" hidden>
+<div class="rig-head">
+<div class="eyebrow">US Floor Package · Plot vs. Patch</div>
+<h1 class="rig-h">What Sam patched vs. what the plot calls for</h1>
+<div class="sub">Christie v1 US spec (Orri R&oacute;senkranz / Vignir Hreinsson, 31 Aug 2025) compared line-by-line against Sam Catmur's patch, 5 Jul 2026.</div>
+</div>
+<div class="grid" id="rigstats"></div>
+<div class="card"><h2>The headline</h2>
+<p style="margin:0 0 10px">The Christie plot is built around a <b>6-bay upstage truss carrying 12 fixtures per type</b>. Sam's US floor package is built around <b>5 upstage positions</b> (US:1&ndash;US:5) on Christie Lites Type F carts. Everything upstage drops accordingly, and three of the six plot fixture types have been substituted outright, a fourth changed mode, and the lifts sit on a placeholder profile.</p>
+<p style="margin:0"><b>One line matches the plot exactly: the Elation ZW37</b> &mdash; 12 units, 22ch, positions correct SR / US / SL.</p></div>
+<div class="secttl">Type-by-type comparison</div>
+<div class="hint">Click any row to open the detail. Filter with the chips below.</div>
+<div class="bar" id="rigfilters"></div>
+<div id="riglist"></div>
+<div class="secttl">Open questions for Sam</div>
+<div class="card"><ol class="qs" id="rigq"></ol></div>
+<div class="secttl">Universe map</div>
+<div class="hint">Address audit across all 68 fixtures: no overlaps, no gaps, nothing over 512. Click a universe to filter the patch list below it.</div>
+<div class="card" style="padding:4px 6px"><div class="uni" id="riguni"></div></div>
+<div class="secttl">Full patch &mdash; 68 fixtures</div>
+<input class="srch" id="rigsearch" type="search" placeholder="Search channel, fixture, position, name or universe&hellip;" autocomplete="off">
+<div class="hint" id="rigcount"></div>
+<div class="card" style="padding:4px 6px"><div id="rigpatch"></div></div>
+<div class="secttl">Source documents</div>
+<div class="card"><ul class="srcs" id="rigsrc"></ul></div>
+<footer>Rig comparison built 17 Sep 2026 from the plot set and Sam's patch paperwork. Fixture names are normalised &mdash; Sam's fixture sheet spells them &ldquo;Quatum&rdquo;, &ldquo;Exteneded&rdquo; and &ldquo;Single Pixle&rdquo;.</footer>
+</section>
+</div>
+<script>window.__SITE__={"rows":[{"d":"2026-09-16","act":"OMAM","type":"travel","city":"Detroit to Toronto","venue":"Flight DL 5406 (DTW → YYZ)","time":"12:55–14:20","note":"Flight DL 5406 DTW to YYZ, 12:55-14:20. Recovered from the hub data blob.","status":"confirmed","conflict":""},{"d":"2026-09-17","act":"OMAM","type":"show","city":"Toronto, ON","venue":"RBC Amphitheatre","time":"19:30","note":"Cap 8,482.","status":"confirmed","conflict":""},{"d":"2026-09-18","act":"OMAM","type":"travel","city":"Toronto to Ottawa","venue":"Travel","time":"","note":"Day coach","status":"confirmed","conflict":"Cash Money"},{"d":"2026-09-19","act":"OMAM","type":"fest","city":"Ottawa, ON","venue":"Ottawa Folk Festival","time":"19:15","note":"Tour busses start Cap 10,000.","status":"confirmed","conflict":"Cash Money"},{"d":"2026-09-20","act":"OMAM","type":"show","city":"Shelburne, VT","venue":"The Green","time":"19:08","note":"Cap 3,330.","status":"confirmed","conflict":""},{"d":"2026-09-21","act":"OMAM","type":"off","city":"Ithaca, NY","venue":"Day off","time":"","note":"","status":"confirmed","conflict":""},{"d":"2026-09-22","act":"OMAM","type":"show","city":"Ithaca, NY","venue":"State Theatre","time":"19:03","note":"Cap 1,600.","status":"confirmed","conflict":""},{"d":"2026-09-23","act":"OMAM","type":"show","city":"New York, NY","venue":"Central Park SummerStage","time":"19:43","note":"Cap 5,000.","status":"confirmed","conflict":"Tinashe"},{"d":"2026-09-24","act":"OMAM","type":"off","city":"Pittsburgh, PA","venue":"Day off","time":"","note":"Day rooms","status":"confirmed","conflict":"Tinashe"},{"d":"2026-09-25","act":"OMAM","type":"fest","city":"Louisville, KY","venue":"Bourbon and Beyond Festival","time":"19:36","note":"Cap 60,000.","status":"confirmed","conflict":"Cash Money"},{"d":"2026-09-26","act":"OMAM","type":"show","city":"Athens, GA","venue":"Georgia Theatre","time":"19:24","note":"Cap 930.","status":"confirmed","conflict":"Cash Money"},{"d":"2026-09-27","act":"OMAM","type":"off","city":"Orlando, FL","venue":"Day off","time":"","note":"","status":"confirmed","conflict":"Tinashe"},{"d":"2026-09-28","act":"OMAM","type":"travel","city":"Baltimore (BWI) → Orlando (MCO)","venue":"Flight WN 409 (BWI → MCO)","time":"08:20–10:50","note":"Back to OMAM · Southwest 737-700 · Seat 20F · MCO to House of Blues ~25 min · load-in 12:00 PM","status":"booked","conflict":""},{"d":"2026-09-28","act":"OMAM","type":"show","city":"Orlando, FL","venue":"House Of Blues","time":"19:52","note":"Cap 2,000.","status":"confirmed","conflict":""},{"d":"2026-09-29","act":"OMAM","type":"show","city":"St Augustine, FL","venue":"St Augustine Amphitheatre","time":"19:13","note":"Cap 4,767.","status":"confirmed","conflict":""},{"d":"2026-09-30","act":"OMAM","type":"show","city":"Miami, FL","venue":"Fillmore","time":"19:08","note":"Cap 2,653.","status":"confirmed","conflict":""},{"d":"2026-10-01","act":"OMAM","type":"off","city":"Tallahassee, FL","venue":"Day off","time":"","note":"Day rooms","status":"confirmed","conflict":""},{"d":"2026-10-02","act":"OMAM","type":"show","city":"New Orleans, LA","venue":"Civic Theatre","time":"18:44","note":"Cap 1,200.","status":"confirmed","conflict":"Cash Money"},{"d":"2026-10-03","act":"OMAM","type":"off","city":"San Antonio, TX","venue":"Day off","time":"","note":"Tour busses drop","status":"confirmed","conflict":""},{"d":"2026-10-04","act":"OMAM","type":"show","city":"San Antonio, TX","venue":"Tech Port","time":"19:15","note":"Cap 1,930.","status":"confirmed","conflict":"Cash Money"},{"d":"2026-10-05","act":"OMAM","type":"travel","city":"San Antonio to Monterrey","venue":"Travel","time":"","note":"Fly","status":"confirmed","conflict":""},{"d":"2026-10-06","act":"OMAM","type":"off","city":"Monterrey","venue":"Day off","time":"","note":"","status":"confirmed","conflict":""},{"d":"2026-10-07","act":"OMAM","type":"show","city":"Monterrey","venue":"Showcentre Complex","time":"18:21","note":"Cap 3,183.","status":"confirmed","conflict":""}],"actFilter":false};window.__COLORS__={"OMAM":"#3F6B57","Tinashe":"#7447B0","SWV":"#C2185B","Cash Money":"#B8860B","AVFX":"#5B6B82"};</script>
+<script>
+const S = window.__SITE__, COLORS = window.__COLORS__;
+const TYPE = {show:['Show','var(--show)'],fest:['Festival','var(--fest)'],travel:['Travel','var(--travel)'],off:['Off','var(--off)'],prep:['Prep / Previz','var(--prep)'],hold:['Hold','var(--hold)']};
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pd = d => { const [y,m,dd] = d.split('-').map(Number); return new Date(y, m-1, dd); };
+const today = (() => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); })();
+const iso = t => t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+const TODAY = iso(today);
+const state = { acts: new Set(), type: 'all', hidePast: false };
+try { state.hidePast = localStorage.getItem('hidePast') === '1'; } catch (e) {}
+
+function stats() {
+  const R = S.rows;
+  const shows = R.filter(r => r.type === 'show' || r.type === 'fest').length;
+  const travel = R.filter(r => r.type === 'travel').length;
+  const off = R.filter(r => r.type === 'off').length;
+  const conf = new Set(R.filter(r => r.conflict).map(r => r.d)).size;
+  const next = R.find(r => r.d >= TODAY && (r.type === 'show' || r.type === 'fest'));
+  let nextHtml = '<b>Run complete</b>';
+  if (next) {
+    const days = Math.round((pd(next.d) - today) / 864e5);
+    nextHtml = '<span>Next show</span><b>' + esc(next.city) + ' · ' + esc(next.venue) + '</b><div class="when">' +
+      pd(next.d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}) +
+      (next.time ? ' · ' + esc(next.time) : '') + ' · ' + (days === 0 ? 'today' : 'in ' + days + ' day' + (days === 1 ? '' : 's')) +
+      (S.actFilter ? ' · ' + esc(next.act) : '') + '</div>';
+  }
+  document.getElementById('stats').innerHTML =
+    '<div class="tile next">' + nextHtml + '</div>' +
+    '<div class="tile"><b>' + shows + '</b><span>Shows</span></div>' +
+    '<div class="tile"><b>' + travel + '</b><span>Travel days</span></div>' +
+    '<div class="tile"><b>' + off + '</b><span>Days off</span></div>' +
+    '<div class="tile"><b>' + conf + '</b><span>Dates with conflicts</span></div>';
+}
+
+function filters() {
+  const bar = document.getElementById('filters');
+  let h = '';
+  const types = [['all','All'],['shows','Shows'],['travel','Travel'],['off','Off / Prep / Holds'],['conflict','Conflicts']];
+  h += types.map(([k,l]) => '<button class="chip" data-type="'+k+'" aria-pressed="'+(state.type===k)+'">'+l+'</button>').join('');
+  if (S.actFilter) {
+    const acts = [...new Set(S.rows.map(r => r.act))];
+    h += '<span style="width:8px"></span>' + acts.map(a => '<button class="chip" data-act="'+esc(a)+'" aria-pressed="'+state.acts.has(a)+'"><i class="dot" style="background:'+COLORS[a]+'"></i>'+esc(a)+'</button>').join('');
+  }
+  h += '<label class="toggle"><input type="checkbox" id="hp" '+(state.hidePast?'checked':'')+'> Hide past dates</label>';
+  bar.innerHTML = h;
+  bar.querySelectorAll('[data-type]').forEach(b => b.onclick = () => { state.type = b.dataset.type; filters(); list(); });
+  bar.querySelectorAll('[data-act]').forEach(b => b.onclick = () => { const a = b.dataset.act; state.acts.has(a) ? state.acts.delete(a) : state.acts.add(a); filters(); list(); });
+  document.getElementById('hp').onchange = e => { state.hidePast = e.target.checked; try { localStorage.setItem('hidePast', state.hidePast ? '1' : '0'); } catch (err) {} list(); };
+}
+
+function keep(r) {
+  if (state.hidePast && r.d < TODAY) return false;
+  if (state.acts.size && !state.acts.has(r.act)) return false;
+  switch (state.type) {
+    case 'shows': return r.type === 'show' || r.type === 'fest';
+    case 'travel': return r.type === 'travel';
+    case 'off': return ['off','prep','hold'].includes(r.type);
+    case 'conflict': return !!r.conflict;
+  }
+  return true;
+}
+
+function list() {
+  const rows = S.rows.filter(keep);
+  const el = document.getElementById('list');
+  if (!rows.length) { el.innerHTML = '<div class="empty">Nothing matches these filters.</div>'; return; }
+  let h = '', cur = '';
+  for (const r of rows) {
+    const dt = pd(r.d);
+    const m = dt.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    if (m !== cur) { h += '<div class="month">' + m + '</div>'; cur = m; }
+    const [tl, tc] = TYPE[r.type];
+    const cls = 'row' + (r.d < TODAY ? ' past' : '') + (r.d === TODAY ? ' today' : '');
+    h += '<div class="'+cls+'" style="--c:'+COLORS[r.act]+'">' +
+      '<div class="date"><div class="dow">'+dt.toLocaleDateString('en-US',{weekday:'short'})+'</div><div class="day">'+dt.getDate()+'</div><div class="mon">'+dt.toLocaleDateString('en-US',{month:'short'})+'</div></div>' +
+      '<div class="main"><div class="city">'+esc(r.city)+'</div><div class="venue">'+esc(r.venue)+'</div>' +
+      '<div class="meta">' + (S.actFilter ? '<span class="pill act" style="background:'+COLORS[r.act]+'">'+esc(r.act)+'</span>' : '') +
+      '<span class="pill type" style="background:'+tc+'">'+tl+'</span>' +
+      (r.status !== 'confirmed' ? '<span class="pill st-'+r.status+'">'+r.status[0].toUpperCase()+r.status.slice(1)+'</span>' : '') +
+      (r.conflict ? '<span class="pill conf">⚠ Conflict: '+esc(r.conflict)+'</span>' : '') + '</div>' +
+      (r.note ? '<div class="note">'+esc(r.note)+'</div>' : '') + '</div>' +
+      '<div class="time">'+esc(r.time)+'</div></div>';
+  }
+  el.innerHTML = h;
+}
+
+function ledger() {
+  const el = document.getElementById('ledger'); if (!el) return;
+  const t = S.rows.filter(r => r.type === 'travel');
+  const label = { booked: 'Booked', hold: 'Hold / not booked', tentative: 'Tentative', confirmed: 'Scheduled' };
+  el.innerHTML = '<div class="tablewrap"><table><thead><tr><th>Date</th><th>Act</th><th>Route</th><th>Detail</th><th>Status</th></tr></thead><tbody>' +
+    t.map(r => '<tr'+(r.d < TODAY ? ' style="opacity:.5"' : '')+'><td>'+pd(r.d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+'</td><td><i class="dot" style="background:'+COLORS[r.act]+'"></i> '+esc(r.act)+'</td><td>'+esc(r.city)+'</td><td>'+esc(r.venue)+(r.time ? ' · '+esc(r.time) : '')+'</td><td><span class="pill st-'+r.status+'">'+label[r.status]+'</span></td></tr>').join('') +
+    '</tbody></table></div>';
+}
+
+stats(); filters(); list(); ledger();
+</script>
+<script>window.__RIG__={"cmp":[{"c":"#C0362C","ch":"1\u201312","tags":["count","renum"],"plot":"Wahlberg Motion Design Lifting Column v2","plotm":"Fixture ID 1 thru 12","plotq":12,"patch":"AUTO \u2014 placeholder profile, moved to 101\u2013110","patchm":"Mode 2 \u00b7 3ch","patchq":10,"flags":[["bad","2 short"],["warn","Renumbered"],["bad","Placeholder profile"]],"note":"The Christie sheet states in plain text: <b>\u201cWahlberg Lifts are Fixture ID 1 thru 12.\u201d</b> The world-tour drawing set backs that up \u2014 its Other Items list carries 12 Wahlberg Motion Design Lifting Column v2. Sam has ten, renumbered to 101\u2013110, sitting on a fixture profile literally named <b>AUTO</b> (3ch, Mode 2, @115W) \u2014 a generic placeholder, not a Wahlberg GDTF.<br><br><b>Ask:</b> are we carrying 10 or 12 columns in the US, and can he pull the proper Wahlberg profile before the show file locks?"},{"c":"#B9A3DB","ch":"1\u201310","tags":["new"],"plot":"\u2014 nothing on any plot","plotm":"","plotq":0,"patch":"Chroma-Q Studio Force II 12","patchm":"RGBW \u00b7 4ch \u00b7 Universe 78","patchq":10,"flags":[["new","Not on plot"],["warn","Channel clash"],["warn","Count disputed"]],"note":"Ten Studio Force II 12 cyc units appear in Sam's patch that are on <b>none</b> of the plot documents \u2014 not the Christie US spec, not the world-tour set, not the festival rider.<br><br>Two problems. First, they occupy <b>channels 1\u201310</b>, which the plot reserves for the Wahlberg lifts \u2014 so channel 1 means two different things depending on whose paperwork you're holding. Recommend moving the cyc to its own block (401\u2013410) and leaving 1\u201312 with the lifts.<br><br>Second, <b>Sam's own paperwork disagrees with itself</b>: the legend on his FULL RIG sheet counts <b>7</b>, while the fixture sheet and his LUSTR/CYC sheet both show <b>10</b> (78/1 through 78/37).<br><br><b>Ask:</b> firm number, and confirmation from Orri that cyc wash is in the US design at all."},{"c":"#E8A87C","ch":"201\u2013212","tags":["count","mode"],"plot":"Elation S\u014cL I Blinder","plotm":"RGB ext \u00b7 15ch","plotq":12,"patch":"Elation SOL I Blinder \u2014 201\u2013210","patchm":"Extended \u00b7 21ch","patchq":10,"flags":[["bad","2 short"],["warn","Mode change"]],"note":"Same fixture, two units short, and a <b>different mode</b> \u2014 the plot calls RGB ext at 15ch, Sam patched Extended at 21ch.<br><br>The mode change matters more than it looks: anything inherited from the tour show file will land on the wrong attributes. Worth deciding deliberately rather than discovering it in soundcheck.<br><br>Sam's note: all S\u014cL I blinders get dome softboxes, stored in their bags."},{"c":"#9DBCE3","ch":"301\u2013307","tags":["sub"],"plot":"Elation KL Par FC WFL","plotm":"Ext \u00b7 19ch","plotq":7,"patch":"ETC Source Four LED2 Lustr 50\u00b0","patchm":"Direct \u2013 Strb/Fan \u00b7 10ch","patchq":7,"flags":[["warn","Fixture swapped"],["ok","Count matches"]],"note":"Count holds at seven and the channel range is untouched \u2014 but this is a real swap. The KL Par FC is a zoomable full-colour wide flood; the S4 LED2 Lustr is a fixed 50\u00b0 with a different colour engine and no zoom.<br><br>These are the artist-position tower specials, so beam coverage is the thing to confirm. Sam has them on 6' and 8' pipes, one pair on a riser.<br><br>Also cosmetic but worth flagging: on universe 76 the Lustrs run <b>out of numeric order</b> \u2014 304 @ 76/31, then 307 @ 76/41, 306 @ 76/51, 305 @ 76/61. No conflict, but it reads strangely on a patch sheet."},{"c":"#2E7D4F","ch":"601\u2013612","tags":["match"],"plot":"Elation ZW37","plotm":"22ch","plotq":12,"patch":"Elation ZW37","patchm":"22ch","patchq":12,"flags":[["ok","Exact match"]],"note":"The one clean line. Twelve units, correct mode, and the positions line up with the plot \u2014 601\u2013604 SR, 605\u2013608 US, 609\u2013612 SL, interleaved with the moving profiles exactly as the Christie sides-truss sheet draws it.<br><br>Nothing to raise here."},{"c":"#C0362C","ch":"701\u2013712","tags":["sub","count","renum"],"plot":"Martin ERA 800 Performance","plotm":"Basic \u00b7 42ch","plotq":12,"patch":"Martin MAC Quantum Profile \u2014 701\u2013711","patchm":"Extended \u00b7 27ch","patchq":11,"flags":[["warn","Fixture swapped"],["bad","1 short"],["bad","SL off by one"]],"note":"Different fixture, one unit short, <b>and the numbering has drifted.</b><br><br>The plot puts six on the US truss (704\u2013709) and three on SL (710, 711, 712). Sam has five on US (704\u2013708), so his SL block slid down one and reads <b>709, 710, 711</b>. Anyone cross-referencing the plot against the show file will be off by one on stage left \u2014 a genuinely easy way to focus the wrong light.<br><br><b>Ask:</b> hold the plot's numbering and leave 712 unpatched, or confirm the renumber is deliberate so the paperwork can follow.<br><br>Both are LED profiles, but zoom range and gobo sets differ \u2014 any gobo-specific look in the tour file needs rebuilding."},{"c":"#C0362C","ch":"1001\u20131009","tags":["sub","count","mode"],"plot":"GLP Impression FR10 Bar","plotm":"M3 MultiPix \u00b7 57ch","plotq":9,"patch":"GLP Impression X4 Bar 20 \u2014 1001\u20131008","patchm":"Single Pixel \u00b7 88ch","patchq":8,"flags":[["bad","Rebuild pixel maps"],["warn","Fixture swapped"],["bad","1 short"]],"note":"<b>This is the big one.</b> FR10 Bar in M3 MultiPix is 57 channels; X4 Bar 20 in Single Pixel is 88 channels across 20 cells. The cell counts don't translate, so <b>every pixel map and bar effect has to be rebuilt from scratch</b> \u2014 not remapped, rebuilt.<br><br>Also one unit short, and the distribution is uneven: US:1, US:3 and US:5 carry two each while US:2 and US:4 carry one.<br><br>Sam's note: all X4 Bars on J-hook clamps, alternating between the second and fourth hole down."}],"qs":["<b>Wahlberg lifts \u2014 10 or 12?</b> And can the real Wahlberg Motion Design v2 profile replace the <em>AUTO</em> placeholder before the show file locks?","<b>Channels 1\u201310.</b> The cyc has taken the block the plot reserves for the lifts. Move the cyc to 401\u2013410 and give 1\u201312 back?","<b>Chroma-Q count \u2014 7 or 10?</b> Sam's FULL RIG legend says 7, his fixture sheet and CYC sheet say 10. And is cyc wash in Orri's US design at all?","<b>S\u014cL I mode.</b> Plot calls 15ch RGB ext, patch is 21ch Extended. Which are we building the file on?","<b>SL numbering.</b> Sam's SL profiles read 709/710/711 where the plot says 710/711/712. Hold the plot's numbering and leave 712 unpatched, or renumber the paperwork to follow?"],"uni":[[71,"SR","ZW37 601\u2013604, MAC Quantum 701\u2013703",7,169],[72,"US","ZW37 605\u2013608, MAC Quantum 704\u2013708",9,223],[73,"US","Lifts 101\u2013110, S\u014cL I 201\u2013210",20,240],[74,"US","X4 Bars 1001\u20131005",5,440],[75,"US","X4 Bars 1006\u20131008",3,264],[76,"MS Flr","S4 LED2 Lustr 301\u2013307",7,70],[77,"SL","ZW37 609\u2013612, MAC Quantum 709\u2013711",7,169],[78,"US Flr","Chroma-Q cyc 1\u201310",10,40]],"src":[["OMAM - Lighting Fixtures - Christie v1.pdf","3pp \u00b7 Rev-Christie \u00b7 31.08.2025","<b>The US spec.</b> Christie Lites substitution set. This is the baseline Sam's patch should mirror."],["FIXTURE SHEET.pdf + OMAN flr USA Fall Tour 26.pdf","Sam Catmur \u00b7 05/07/2026","Sam's US Floor Package \u2014 68 fixtures, 8 universes. Vectorworks Educational Version export."],["OMAM Tour 2025-26 - Drawing Set 1.pdf","11pp \u00b7 RevC \u00b7 31.08.2025","World tour rig \u2014 Astera Leo, Clay Paky HY B-EYE K25, MAC Viper XIP, Robe SvoPatt, Elation KL Fresnel 8FC. <b>International spec, not the US package.</b>"],["OMAM - Festival - Flown.pdf","4pp \u00b7 05.02.26","Festival flown package \u2014 Ayrton Eurus TC \u00d732, JT 8-lite \u00d78, Robe Spiider \u00d725, GLP FR10 Bar \u00d739. Separate rider."],["OMAM US1 Patched Show File","38 MB","grandMA3 show file from Sam. Not parsed here \u2014 open on console to verify against this sheet."]],"notes":["All F Type carts stay on dollies; ply boards in the bottom for storage","US truss spacings mirrored SL / SR","Side light units sit on 3\u00d7 S2W cases ratcheted together longways","X4 Bars on J-hook clamps, alternating 2nd and 4th hole down","All S\u014cL I blinders get dome softboxes (stored in their bags)","All lights rig to central 8' pipe spans laid over the top of the truss"],"patch":[{"ch":1,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":1,"n":"CYC.1","m":"RGBW (4ch)"},{"ch":2,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":5,"n":"CYC.1","m":"RGBW (4ch)"},{"ch":3,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":9,"n":"CYC.2","m":"RGBW (4ch)"},{"ch":4,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":13,"n":"CYC.2","m":"RGBW (4ch)"},{"ch":5,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":17,"n":"CYC.3","m":"RGBW (4ch)"},{"ch":6,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":21,"n":"CYC.3","m":"RGBW (4ch)"},{"ch":7,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":25,"n":"CYC.4","m":"RGBW (4ch)"},{"ch":8,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":29,"n":"CYC.4","m":"RGBW (4ch)"},{"ch":9,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":33,"n":"CYC.5","m":"RGBW (4ch)"},{"ch":10,"pos":"US Flr","fx":"Chroma-Q Studio Force II 12","u":78,"a":37,"n":"CYC.5","m":"RGBW (4ch)"},{"ch":101,"pos":"US: 1","fx":"AUTO","u":73,"a":1,"n":"CYC.1","m":"Mode 2 (3ch)"},{"ch":102,"pos":"US: 1","fx":"AUTO","u":73,"a":4,"n":"US1.4","m":"Mode 2 (3ch)"},{"ch":103,"pos":"US: 2","fx":"AUTO","u":73,"a":7,"n":"US2.2","m":"Mode 2 (3ch)"},{"ch":104,"pos":"US: 2","fx":"AUTO","u":73,"a":10,"n":"US2.4","m":"Mode 2 (3ch)"},{"ch":105,"pos":"US: 3","fx":"AUTO","u":73,"a":13,"n":"US3.1","m":"Mode 2 (3ch)"},{"ch":106,"pos":"US: 3","fx":"AUTO","u":73,"a":16,"n":"US3.3","m":"Mode 2 (3ch)"},{"ch":107,"pos":"US: 4","fx":"AUTO","u":73,"a":19,"n":"US4.4","m":"Mode 2 (3ch)"},{"ch":108,"pos":"US: 4","fx":"AUTO","u":73,"a":22,"n":"US4.3","m":"Mode 2 (3ch)"},{"ch":109,"pos":"US: 5","fx":"AUTO","u":73,"a":25,"n":"US5.4","m":"Mode 2 (3ch)"},{"ch":110,"pos":"US: 5","fx":"AUTO","u":73,"a":28,"n":"US5.1","m":"Mode 2 (3ch)"},{"ch":201,"pos":"US: 1","fx":"Elation SOL I Blinder","u":73,"a":31,"n":"US1.3","m":"Extended (21ch)"},{"ch":202,"pos":"US: 1","fx":"Elation SOL I Blinder","u":73,"a":52,"n":"US1.4","m":"Extended (21ch)"},{"ch":203,"pos":"US: 2","fx":"Elation SOL I Blinder","u":73,"a":73,"n":"US2.2","m":"Extended (21ch)"},{"ch":204,"pos":"US: 2","fx":"Elation SOL I Blinder","u":73,"a":94,"n":"US2.4","m":"Extended (21ch)"},{"ch":205,"pos":"US: 3","fx":"Elation SOL I Blinder","u":73,"a":115,"n":"US3.1","m":"Extended (21ch)"},{"ch":206,"pos":"US: 3","fx":"Elation SOL I Blinder","u":73,"a":136,"n":"US3.3","m":"Extended (21ch)"},{"ch":207,"pos":"US: 4","fx":"Elation SOL I Blinder","u":73,"a":157,"n":"US4.4","m":"Extended (21ch)"},{"ch":208,"pos":"US: 4","fx":"Elation SOL I Blinder","u":73,"a":178,"n":"US4.2","m":"Extended (21ch)"},{"ch":209,"pos":"US: 5","fx":"Elation SOL I Blinder","u":73,"a":199,"n":"US5.4","m":"Extended (21ch)"},{"ch":210,"pos":"US: 5","fx":"Elation SOL I Blinder","u":73,"a":220,"n":"US5.1","m":"Extended (21ch)"},{"ch":301,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":1,"n":"LST.1","m":"Direct - Strb/Fan (10ch)"},{"ch":302,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":11,"n":"LST.1","m":"Direct - Strb/Fan (10ch)"},{"ch":303,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":21,"n":"LST.2","m":"Direct - Strb/Fan (10ch)"},{"ch":304,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":31,"n":"LST.2","m":"Direct - Strb/Fan (10ch)"},{"ch":305,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":61,"n":"LST.4","m":"Direct - Strb/Fan (10ch)"},{"ch":306,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":51,"n":"LST.3","m":"Direct - Strb/Fan (10ch)"},{"ch":307,"pos":"MS Flr","fx":"ETC Source4 LED2LS 50deg","u":76,"a":41,"n":"LST.3","m":"Direct - Strb/Fan (10ch)"},{"ch":601,"pos":"SR","fx":"Elation ZW37","u":71,"a":1,"n":"SR.6","m":"22ch"},{"ch":602,"pos":"SR","fx":"Elation ZW37","u":71,"a":23,"n":"SR.3","m":"22ch"},{"ch":603,"pos":"SR","fx":"Elation ZW37","u":71,"a":45,"n":"SR.2","m":"22ch"},{"ch":604,"pos":"SR","fx":"Elation ZW37","u":71,"a":67,"n":"SR.1","m":"22ch"},{"ch":605,"pos":"US: 1","fx":"Elation ZW37","u":72,"a":1,"n":"US1.2","m":"22ch"},{"ch":606,"pos":"US: 2","fx":"Elation ZW37","u":72,"a":23,"n":"US2.1","m":"22ch"},{"ch":607,"pos":"US: 4","fx":"Elation ZW37","u":72,"a":45,"n":"US4.3","m":"22ch"},{"ch":608,"pos":"US: 5","fx":"Elation ZW37","u":72,"a":67,"n":"US5.2","m":"22ch"},{"ch":609,"pos":"SL","fx":"Elation ZW37","u":77,"a":1,"n":"SL.1","m":"22ch"},{"ch":610,"pos":"SL","fx":"Elation ZW37","u":77,"a":23,"n":"SL.2","m":"22ch"},{"ch":611,"pos":"SL","fx":"Elation ZW37","u":77,"a":45,"n":"SL.3","m":"22ch"},{"ch":612,"pos":"SL","fx":"Elation ZW37","u":77,"a":67,"n":"SL.6","m":"22ch"},{"ch":701,"pos":"SR","fx":"Martin Mac Quantum Profile","u":71,"a":89,"n":"SR.3","m":"Extended (27ch)"},{"ch":702,"pos":"SR","fx":"Martin Mac Quantum Profile","u":71,"a":116,"n":"SR.2","m":"Extended (27ch)"},{"ch":703,"pos":"SR","fx":"Martin Mac Quantum Profile","u":71,"a":143,"n":"SR.1","m":"Extended (27ch)"},{"ch":704,"pos":"US: 1","fx":"Martin Mac Quantum Profile","u":72,"a":89,"n":"US1.1","m":"Extended (27ch)"},{"ch":705,"pos":"US: 2","fx":"Martin Mac Quantum Profile","u":72,"a":116,"n":"US2.3","m":"Extended (27ch)"},{"ch":706,"pos":"US: 3","fx":"Martin Mac Quantum Profile","u":72,"a":143,"n":"US3.2","m":"Extended (27ch)"},{"ch":707,"pos":"US: 4","fx":"Martin Mac Quantum Profile","u":72,"a":170,"n":"US4.1","m":"Extended (27ch)"},{"ch":708,"pos":"US: 5","fx":"Martin Mac Quantum Profile","u":72,"a":197,"n":"US5.3","m":"Extended (27ch)"},{"ch":709,"pos":"SL","fx":"Martin Mac Quantum Profile","u":77,"a":89,"n":"SL.1","m":"Extended (27ch)"},{"ch":710,"pos":"SL","fx":"Martin Mac Quantum Profile","u":77,"a":116,"n":"SL.2","m":"Extended (27ch)"},{"ch":711,"pos":"SL","fx":"Martin Mac Quantum Profile","u":77,"a":143,"n":"SL.3","m":"Extended (27ch)"},{"ch":1001,"pos":"US: 1","fx":"GLP Impression X4 Bar 20","u":74,"a":1,"n":"US1.5","m":"Single Pixel (88ch)"},{"ch":1002,"pos":"US: 1","fx":"GLP Impression X4 Bar 20","u":74,"a":89,"n":"US1.6","m":"Single Pixel (88ch)"},{"ch":1003,"pos":"US: 2","fx":"GLP Impression X4 Bar 20","u":74,"a":177,"n":"US2.5","m":"Single Pixel (88ch)"},{"ch":1004,"pos":"US: 3","fx":"GLP Impression X4 Bar 20","u":74,"a":265,"n":"US3.4","m":"Single Pixel (88ch)"},{"ch":1005,"pos":"US: 3","fx":"GLP Impression X4 Bar 20","u":74,"a":353,"n":"US3.5","m":"Single Pixel (88ch)"},{"ch":1006,"pos":"US: 4","fx":"GLP Impression X4 Bar 20","u":75,"a":1,"n":"US4.5","m":"Single Pixel (88ch)"},{"ch":1007,"pos":"US: 5","fx":"GLP Impression X4 Bar 20","u":75,"a":89,"n":"US5.5","m":"Single Pixel (88ch)"},{"ch":1008,"pos":"US: 5","fx":"GLP Impression X4 Bar 20","u":75,"a":177,"n":"US5.6","m":"Single Pixel (88ch)"}]};</script>
+<script>
+
+(function(){
+  var R = window.__RIG__;
+  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); };
+
+  /* ---- tabs ---- */
+  var tabs = document.querySelectorAll('#tabs .tab');
+  function show(name, push){
+    tabs.forEach(function(t){
+      var on = t.dataset.pane === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      var p = document.getElementById('pane-' + t.dataset.pane);
+      if (p) p.hidden = !on;
+    });
+    if (push && location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
+    window.scrollTo({top:0});
+  }
+  tabs.forEach(function(t){ t.onclick = function(){ show(t.dataset.pane, true); }; });
+  window.addEventListener('hashchange', function(){
+    var h = location.hash.replace('#','');
+    if (h === 'rig' || h === 'itinerary') show(h, false);
+  });
+
+  /* ---- stats ---- */
+  var totalFx = R.patch.length;
+  var unis = R.uni.length;
+  var matches = R.cmp.filter(function(r){ return r.tags.indexOf('match') > -1; }).length;
+  var swaps = R.cmp.filter(function(r){ return r.tags.indexOf('sub') > -1; }).length;
+  document.getElementById('rigstats').innerHTML =
+    '<div class="tile next"><span>Fixture types compared</span><b>1 of 6 plot types matches — the ZW37</b>' +
+      '<div class="when">' + swaps + ' outright substitutions · 1 mode change · 1 placeholder profile · 5 open questions</div></div>' +
+    '<div class="tile"><b>' + totalFx + '</b><span>Fixtures patched</span></div>' +
+    '<div class="tile"><b>' + unis + '</b><span>Universes</span></div>' +
+    '<div class="tile"><b>0</b><span>Address conflicts</span></div>';
+
+  /* ---- comparison ---- */
+  var FILTERS = [['all','All'],['match','Matches plot'],['sub','Fixture swapped'],['count','Count / numbering'],['new','Not on plot']];
+  var cf = 'all';
+  function renderFilters(){
+    var bar = document.getElementById('rigfilters');
+    bar.innerHTML = FILTERS.map(function(f){
+      var n = f[0] === 'all' ? R.cmp.length : R.cmp.filter(function(r){
+        return f[0] === 'count' ? (r.tags.indexOf('count') > -1 || r.tags.indexOf('renum') > -1) : r.tags.indexOf(f[0]) > -1;
+      }).length;
+      return '<button class="chip" data-f="' + f[0] + '" aria-pressed="' + (cf === f[0]) + '">' + f[1] + ' <span class="qty">' + n + '</span></button>';
+    }).join('');
+    bar.querySelectorAll('[data-f]').forEach(function(b){
+      b.onclick = function(){ cf = b.dataset.f; renderFilters(); renderCmp(); };
+    });
+  }
+  function renderCmp(){
+    var rows = R.cmp.filter(function(r){
+      if (cf === 'all') return true;
+      if (cf === 'count') return r.tags.indexOf('count') > -1 || r.tags.indexOf('renum') > -1;
+      return r.tags.indexOf(cf) > -1;
+    });
+    document.getElementById('riglist').innerHTML = rows.map(function(r){
+      return '<details class="cmp" style="--c:' + r.c + '"><summary>' +
+        '<div class="chn">' + esc(r.ch) + '</div>' +
+        '<div class="side"><div class="lbl">Plot</div><div class="val">' + esc(r.plot) +
+          (r.plotq ? '<span class="qty">×' + r.plotq + '</span>' : '') + '</div>' +
+          (r.plotm ? '<div class="mode">' + esc(r.plotm) + '</div>' : '') + '</div>' +
+        '<div class="side"><div class="lbl">Sam’s patch</div><div class="val">' + esc(r.patch) +
+          (r.patchq ? '<span class="qty">×' + r.patchq + '</span>' : '') + '</div>' +
+          (r.patchm ? '<div class="mode">' + esc(r.patchm) + '</div>' : '') + '</div>' +
+        '<div class="flags">' + r.flags.map(function(f){ return '<span class="st ' + f[0] + '">' + esc(f[1]) + '</span>'; }).join('') + '</div>' +
+        '</summary><div class="body">' + r.note + '</div></details>';
+    }).join('');
+  }
+  renderFilters(); renderCmp();
+
+  /* ---- questions ---- */
+  document.getElementById('rigq').innerHTML = R.qs.map(function(q){ return '<li>' + q + '</li>'; }).join('');
+
+  /* ---- universes ---- */
+  var uniSel = null;
+  function renderUni(){
+    document.getElementById('riguni').innerHTML =
+      '<div class="tablewrap"><table><thead><tr><th class="num">Uni</th><th>Position</th><th>Contents</th><th class="num">Fx</th><th class="num">Ch used</th></tr></thead><tbody>' +
+      R.uni.map(function(u){
+        return '<tr class="' + (uniSel === u[0] ? 'sel' : '') + '" data-u="' + u[0] + '"><td class="num"><b>' + u[0] + '</b></td><td>' + esc(u[1]) +
+          '</td><td style="white-space:normal">' + esc(u[2]) + '</td><td class="num">' + u[3] + '</td><td class="num">' + u[4] + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+    document.querySelectorAll('#riguni tbody tr').forEach(function(tr){
+      tr.onclick = function(){
+        var u = Number(tr.dataset.u);
+        uniSel = (uniSel === u) ? null : u;
+        renderUni(); renderPatch();
+        if (uniSel) document.getElementById('rigsearch').scrollIntoView({behavior:'smooth', block:'center'});
+      };
+    });
+  }
+
+  /* ---- patch table ---- */
+  var COLOR = {
+    'Chroma-Q Studio Force II 12':'#B9A3DB', 'AUTO':'#C9C9CC', 'Elation SOL I Blinder':'#E8A87C',
+    'ETC Source4 LED2LS 50deg':'#9DBCE3', 'Elation ZW37':'#2E7D4F',
+    'Martin Mac Quantum Profile':'#E98B8B', 'GLP Impression X4 Bar 20':'#F2D57E'
+  };
+  function renderPatch(){
+    var q = document.getElementById('rigsearch').value.trim().toLowerCase();
+    var rows = R.patch.filter(function(r){
+      if (uniSel && r.u !== uniSel) return false;
+      if (!q) return true;
+      return (r.ch + ' ' + r.fx + ' ' + r.pos + ' ' + r.n + ' ' + r.m + ' ' + r.u + '/' + r.a).toLowerCase().indexOf(q) > -1;
+    });
+    document.getElementById('rigcount').textContent =
+      rows.length + ' of ' + R.patch.length + ' fixtures' + (uniSel ? ' · universe ' + uniSel + ' — click it again to clear' : '');
+    var el = document.getElementById('rigpatch');
+    if (!rows.length) { el.innerHTML = '<div class="empty" style="padding:16px">Nothing matches.</div>'; return; }
+    el.innerHTML = '<div class="tablewrap"><table><thead><tr><th class="num">Ch</th><th>Position</th><th>Fixture</th><th class="num">Address</th><th>Name</th><th>Mode</th></tr></thead><tbody>' +
+      rows.map(function(r){
+        return '<tr class="sub" style="--c:' + (COLOR[r.fx] || 'var(--line)') + '"><td class="num"><b>' + r.ch + '</b></td><td>' + esc(r.pos) +
+          '</td><td>' + esc(r.fx) + '</td><td class="num">' + r.u + '/' + r.a + '</td><td>' + esc(r.n) + '</td><td>' + esc(r.m) + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+  document.getElementById('rigsearch').oninput = renderPatch;
+  renderUni(); renderPatch();
+
+  /* ---- sources ---- */
+  document.getElementById('rigsrc').innerHTML =
+    R.src.map(function(s){ return '<li><b>' + esc(s[0]) + '</b> &mdash; <em>' + esc(s[1]) + '</em><br>' + s[2] + '</li>'; }).join('') +
+    '<li style="margin-top:12px"><b>Notes carried from Sam’s sheets</b><ul style="margin:6px 0 0">' +
+      R.notes.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></li>';
+
+  /* ---- deep link ---- */
+  var h = location.hash.replace('#','');
+  if (h === 'rig') show('rig', false);
+})();
+</script></body></html>
